@@ -136,7 +136,7 @@ bool BatteryTracker::anyBatteriesDischarging(AppleSmartBattery* pExcept)
     for (unsigned i = 0; i < count; ++i)
     {
         AppleSmartBatteryManager* pManager = static_cast<AppleSmartBatteryManager*>(m_pBatteryList->getObject(i));
-        if (pManager && pManager->fBattery && pExcept != pManager->fBattery && !pManager->fBattery->fACConnected)
+        if (pManager && pManager->fBattery && pExcept != pManager->fBattery && pManager->fBattery->fBatteryPresent && !pManager->fBattery->fACConnected)
         {
             result = true;
             break;
