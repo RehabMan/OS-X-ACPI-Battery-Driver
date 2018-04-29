@@ -71,6 +71,7 @@ IOReturn ACPIACAdapter::message(UInt32 type, IOService* provider, void* argument
     if (type == kIOACPIMessageDeviceNotification && fProvider)
     {
         UInt32 acpi = 0;
+		fProvider->evaluateInteger("_PSR", &acpi);
         if (kIOReturnSuccess == fProvider->evaluateInteger("_PSR", &acpi))
         {
             DebugLog("ACPIACAdapter::message setting AC %s\n", (acpi ? "connected" : "disconnected"));

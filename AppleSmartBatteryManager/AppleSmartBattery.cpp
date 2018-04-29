@@ -92,8 +92,8 @@ enum
 
 static uint32_t milliSecPollingTable[2] =
 { 
-	30000,    // 0 == Regular 30 second polling
-	1000      // 1 == Quick 1 second polling
+	60000,    // 0 == Regular 30 second polling
+	60000      // 1 == Quick 1 second polling
 };
 
 // Keys we use to publish battery state in our IOPMPowerSource::properties array
